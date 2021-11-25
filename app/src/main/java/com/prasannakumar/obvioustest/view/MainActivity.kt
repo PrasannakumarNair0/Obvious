@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
        model.getPictures().observe(this){list:List<NasaPicDetails>->
            Log.d("ABC", "setupViewModel:${list.size} ")
            binding.nasaPics.layoutManager = GridLayoutManager(this, TOTAL_COLUMN)
-           adapterList= GridViewAdapter(list)
+           adapterList= GridViewAdapter(list,this)
            binding.nasaPics.adapter=adapterList
        }
 
