@@ -1,10 +1,11 @@
 package com.prasannakumar.obvioustest.util
 
-import android.content.Context
+import android.app.Activity
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import java.io.IOException
 
-class Utils {
-    fun getJsonFromAssets(context: Context, fileName: String): String? {
+class Utils(private var context: Activity) {
+    fun getJsonFromAssets(fileName: String): String? {
         val jsonString: String
         try {
             jsonString = context.assets.open(fileName).bufferedReader().use { it.readText() }
@@ -13,5 +14,13 @@ class Utils {
             return null
         }
         return jsonString
+    }
+
+    fun getCircle(): CircularProgressDrawable {
+        val circularProgressDrawable = CircularProgressDrawable(context)
+        circularProgressDrawable.strokeWidth = 5f
+        circularProgressDrawable.centerRadius = 30f
+        circularProgressDrawable.start()
+        return circularProgressDrawable
     }
 }

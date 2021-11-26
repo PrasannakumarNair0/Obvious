@@ -13,7 +13,6 @@ import java.lang.reflect.Type
 
 class MainActivityViewModel : ViewModel() {
     private val picList: MutableLiveData<List<NasaPicDetails>> = MutableLiveData()
-    private lateinit var list: List<NasaPicDetails>
     fun getPictures(): LiveData<List<NasaPicDetails>> {
         return picList
     }
@@ -22,9 +21,7 @@ class MainActivityViewModel : ViewModel() {
         viewModelScope.launch {
             val gson = Gson()
             val myType: Type = object : TypeToken<List<NasaPicDetails>>() {}.type
-            list = gson.fromJson(jsonString, myType)
-            picList.value = list
+            picList.value = gson.fromJson(jsonString, myType)
         }
     }
-
 }

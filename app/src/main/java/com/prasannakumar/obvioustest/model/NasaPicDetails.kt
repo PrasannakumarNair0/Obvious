@@ -13,4 +13,4 @@ data class NasaPicDetails(
     var serviceVersion: String? = null,
     var title: String? = null,
     var url: String? = null
-): Parcelable
+) : Parcelable

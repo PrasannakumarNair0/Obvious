@@ -1,6 +1,5 @@
 package com.prasannakumar.obvioustest.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,10 @@ import com.prasannakumar.obvioustest.view.DetailActivity
 import com.prasannakumar.obvioustest.view.MainActivity
 
 
-class GridViewAdapter(private var nasaPicDetailsList: List<NasaPicDetails>, private var context:MainActivity ) :
+class GridViewAdapter(
+    private var nasaPicDetailsList: List<NasaPicDetails>,
+    private var context: MainActivity
+) :
     RecyclerView.Adapter<GridViewAdapter.ViewHolder>() {
     private lateinit var binding: ItemViewBinding
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridViewAdapter.ViewHolder {
@@ -33,10 +35,9 @@ class GridViewAdapter(private var nasaPicDetailsList: List<NasaPicDetails>, priv
                 .transform()
                 .into(binding.icImages)
 
-            binding.imageLayout.setOnClickListener(View.OnClickListener {
-                Log.d("ABC", "onBindViewHolder:${model.title} ")
-                DetailActivity.startAsIntent(context,model)
-            })
+            binding.imageLayout.setOnClickListener {
+                DetailActivity.startAsIntent(context, model)
+            }
         }
     }
 
