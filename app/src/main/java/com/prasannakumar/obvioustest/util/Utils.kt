@@ -1,10 +1,11 @@
 package com.prasannakumar.obvioustest.util
 
 import android.app.Activity
+import android.content.Context
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import java.io.IOException
 
-class Utils(private var context: Activity) {
+class Utils(private var context: Context) {
     fun getJsonFromAssets(fileName: String): String? {
         val jsonString: String
         try {

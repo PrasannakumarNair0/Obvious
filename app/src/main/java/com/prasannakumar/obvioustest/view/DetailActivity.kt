@@ -2,8 +2,11 @@ package com.prasannakumar.obvioustest.view
 
 import android.content.Context
 import android.content.Intent
+import android.icu.text.CompactDecimalFormat
+import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.prasannakumar.obvioustest.R
 import com.prasannakumar.obvioustest.databinding.DetailActvityBinding
@@ -21,6 +24,7 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DetailActvityBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
         val bundle = intent.getBundleExtra(BUNDLE)
         if (bundle != null) {
             nasaObj = bundle.getParcelable(EXTRA_DETAIL_OBJECT)!!
@@ -39,7 +43,7 @@ class DetailActivity : AppCompatActivity() {
         val progressCircle = utilObj.getCircle()
         Glide.with(binding.root)
             .load(nasaObj.hdurl)
-            .centerCrop()
+            .circleCrop()
             .placeholder(progressCircle)
             .error(R.drawable.ic_broken_image)
             .fallback(R.drawable.ic_no_image)
