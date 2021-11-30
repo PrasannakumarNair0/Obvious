@@ -8,6 +8,10 @@ import com.prasannakumar.obvioustest.adapters.GridViewAdapter
 import com.prasannakumar.obvioustest.databinding.ActivityMainBinding
 import com.prasannakumar.obvioustest.model.NasaPicDetails
 import com.prasannakumar.obvioustest.util.Utils
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 
 const val TOTAL_COLUMN = 2
 const val JSON = "nasa.json"
@@ -35,9 +39,12 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun setupUI() {
+    @DelicateCoroutinesApi
+    private  fun setupUI() {
         val utilObj = Utils(this)
-        val jsonString = utilObj.getJsonFromAssets(JSON)
-        model.getDataFromJsonFile(jsonString)
+        GlobalScope.launch {
+            val jsonString = utilObj.getJsonFromAssets(JSON)
+            model.getDataFromJsonFile(jsonString)
+        }
     }
 }
