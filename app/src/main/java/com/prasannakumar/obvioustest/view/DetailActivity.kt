@@ -2,11 +2,8 @@ package com.prasannakumar.obvioustest.view
 
 import android.content.Context
 import android.content.Intent
-import android.icu.text.CompactDecimalFormat
-import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.prasannakumar.obvioustest.R
 import com.prasannakumar.obvioustest.databinding.DetailActvityBinding

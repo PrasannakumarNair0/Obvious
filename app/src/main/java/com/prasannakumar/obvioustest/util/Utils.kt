@@ -1,6 +1,5 @@
 package com.prasannakumar.obvioustest.util
 
-import android.app.Activity
 import android.content.Context
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import java.io.IOException

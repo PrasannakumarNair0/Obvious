@@ -10,7 +10,6 @@ import com.prasannakumar.obvioustest.model.NasaPicDetails
 import com.prasannakumar.obvioustest.util.Utils
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
 const val TOTAL_COLUMN = 2
@@ -40,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     @DelicateCoroutinesApi
-    private  fun setupUI() {
+    private fun setupUI() {
         val utilObj = Utils(this)
         GlobalScope.launch {
             val jsonString = utilObj.getJsonFromAssets(JSON)
